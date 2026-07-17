@@ -1,19 +1,28 @@
 export async function getProducts() {
   try {
     const res = await fetch(
-      "https://api.escuelajs.co/api/v1/products",
+      "https://fakestoreapi.com/products",
       {
         cache: "no-store",
       }
     );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch products");
+      throw new Error(
+        `HTTP Error: ${res.status}`
+      );
     }
 
-    return await res.json();
+    const text = await res.text();
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      console.error("Invalid JSON:", text);
+      return [];
+    }
   } catch (error) {
-    console.error(error);
+    console.error("Products Error:", error);
     return [];
   }
 }
@@ -21,19 +30,28 @@ export async function getProducts() {
 export async function getProduct(id) {
   try {
     const res = await fetch(
-      `https://api.escuelajs.co/api/v1/products/${id}`,
+      `https://fakestoreapi.com/products/${id}`,
       {
         cache: "no-store",
       }
     );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch product");
+      throw new Error(
+        `HTTP Error: ${res.status}`
+      );
     }
 
-    return await res.json();
+    const text = await res.text();
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      console.error("Invalid JSON:", text);
+      return null;
+    }
   } catch (error) {
-    console.error(error);
+    console.error("Product Error:", error);
     return null;
   }
 }
