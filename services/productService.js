@@ -1,7 +1,7 @@
 export async function getProducts() {
   try {
     const res = await fetch(
-      "https://fakestoreapi.com/products",
+      "https://api.escuelajs.co/api/v1/products",
       {
         cache: "no-store",
       }
@@ -11,10 +11,9 @@ export async function getProducts() {
       throw new Error("Failed to fetch products");
     }
 
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
-    console.error("Products Error:", error);
+    console.error(error);
     return [];
   }
 }
@@ -22,7 +21,7 @@ export async function getProducts() {
 export async function getProduct(id) {
   try {
     const res = await fetch(
-      `https://fakestoreapi.com/products/${id}`,
+      `https://api.escuelajs.co/api/v1/products/${id}`,
       {
         cache: "no-store",
       }
@@ -32,10 +31,9 @@ export async function getProduct(id) {
       throw new Error("Failed to fetch product");
     }
 
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
-    console.error("Product Error:", error);
+    console.error(error);
     return null;
   }
 }

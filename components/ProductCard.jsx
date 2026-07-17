@@ -15,10 +15,10 @@ export default function ProductCard({
     >
       <div className="h-60 flex justify-center items-center p-6">
         <img
-          src={product.image}
-          alt={product.title}
-          className="h-40 object-contain"
-        />
+  src={product.images?.[0]}
+  alt={product.title}
+  className="h-40 mx-auto object-contain"
+/>
       </div>
 
       <div className="p-5">
