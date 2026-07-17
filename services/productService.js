@@ -1,15 +1,41 @@
 export async function getProducts() {
-  const res = await fetch(
-    "https://fakestoreapi.com/products"
-  );
+  try {
+    const res = await fetch(
+      "https://fakestoreapi.com/products",
+      {
+        cache: "no-store",
+      }
+    );
 
-  return res.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch products");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Products Error:", error);
+    return [];
+  }
 }
 
 export async function getProduct(id) {
-  const res = await fetch(
-    `https://fakestoreapi.com/products/${id}`
-  );
+  try {
+    const res = await fetch(
+      `https://fakestoreapi.com/products/${id}`,
+      {
+        cache: "no-store",
+      }
+    );
 
-  return res.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch product");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Product Error:", error);
+    return null;
+  }
 }
