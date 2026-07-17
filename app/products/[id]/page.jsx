@@ -12,11 +12,11 @@ export default async function ProductDetails({
   return (
     <PageWrapper>
       <div className="p-10">
-       <img
-  src={product.images?.[0]}
-  alt={product.title}
-  className="h-72 object-contain"
-/>
+        <img
+          src={product.image}
+          alt={product.title}
+          className="h-72 object-contain"
+        />
 
         <h1 className="text-3xl font-bold mt-5">
           {product.title}
