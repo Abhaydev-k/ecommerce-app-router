@@ -15,7 +15,7 @@ export default function Contact() {
             Email
           </h2>
           <p className="text-gray-600">
-            support@yourstore.com
+            support@estore.com
           </p>
         </div>
 
