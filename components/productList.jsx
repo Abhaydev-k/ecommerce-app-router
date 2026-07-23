@@ -3,21 +3,14 @@
 import ProductCard from "./ProductCard";
 
 export default function ProductList({ products }) {
-
-  console.log("PRODUCTS FROM SERVER:", products);
-
   return (
-    <>
-      <h2>
-        Received: {products?.length}
-      </h2>
-
-      {products?.map((product)=>(
-        <ProductCard 
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      {products?.map((product) => (
+        <ProductCard
           key={product.id}
           product={product}
         />
       ))}
-    </>
+    </div>
   );
 }
