@@ -5,35 +5,15 @@ import PageWrapper from "@/components/pageWrapper";
 export default async function Products() {
   const products = await getProducts();
 
-  return (
-    <PageWrapper>
-      <div className="p-10">
-        <h1 className="text-4xl font-bold mb-6">
-          Products
-        </h1>
-
-        <p>Products found: {products?.length}</p>
-
-    export default async function Products() {
-  const products = await getProducts();
-
-  console.log("PAGE PRODUCTS:", products);
-
-  return (
-    <PageWrapper>
-      <div className="p-10">
-        <h1 className="text-4xl font-bold mb-6">
-          Products
-        </h1>
-
-        <p>Products found: {products?.length}</p>
-
-        <ProductList products={products} />
-      </div>
-    </PageWrapper>
+  console.log(
+    "PAGE RECEIVED:",
+    products?.length
   );
-}    <ProductList products={products} />
-      </div>
-    </PageWrapper>
+
+  return (
+    <div>
+      <h1>Products</h1>
+      <p>{products?.length}</p>
+    </div>
   );
 }

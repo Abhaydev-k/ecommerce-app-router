@@ -3,19 +3,15 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ProductCard({
-  product,
-}) {
+export default function ProductCard({ product }) {
   return (
     <motion.div
-      whileHover={{
-        y: -8,
-      }}
+      whileHover={{ y: -8 }}
       className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
     >
       <div className="h-60 flex justify-center items-center p-6">
         <img
-          src={product.image}
+          src={product.thumbnail}
           alt={product.title}
           className="h-40 object-contain"
         />
@@ -25,6 +21,10 @@ export default function ProductCard({
         <h2 className="font-semibold line-clamp-2">
           {product.title}
         </h2>
+
+        <p className="text-gray-500 text-sm mt-2">
+          {product.category}
+        </p>
 
         <p className="text-green-600 text-xl font-bold mt-2">
           ${product.price}

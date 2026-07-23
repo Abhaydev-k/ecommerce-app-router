@@ -1,21 +1,45 @@
 export async function getProducts() {
   try {
     const res = await fetch(
-      "https://fakestoreapi.com/products",
+      "https://dummyjson.com/products",
       {
         cache: "no-store",
       }
     );
 
-    console.log("STATUS:", res.status);
+    if (!res.ok) {
+      throw new Error(
+        `HTTP Error: ${res.status}`
+      );
+    }
 
-    const text = await res.text();
+    const data = await res.json();
 
-    console.log("RESPONSE:", text);
-
-    return JSON.parse(text);
+    return data.products;
   } catch (error) {
     console.error("Products Error:", error);
     return [];
+  }
+}
+
+export async function getProduct(id) {
+  try {
+    const res = await fetch(
+      `https://dummyjson.com/products/${id}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        `HTTP Error: ${res.status}`
+      );
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Product Error:", error);
+    return null;
   }
 }
