@@ -1,6 +1,6 @@
 import { getProducts } from "@/services/productService";
-import ProductList from "@/components/ProductList";
-import PageWrapper from "@/components/PageWrapper";
+import productList from "@/components/productList";
+import pageWrapper from "@/components/pageWrapper";
 
 export default async function Products() {
   const products = await getProducts();
