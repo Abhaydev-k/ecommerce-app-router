@@ -5,8 +5,6 @@ import PageWrapper from "@/components/pageWrapper";
 export default async function Products() {
   const products = await getProducts();
 
-  console.log("Products Length:", products?.length);
-
   return (
     <PageWrapper>
       <div className="p-10">
@@ -14,7 +12,7 @@ export default async function Products() {
           Products
         </h1>
 
-        <p>Products Count: {products?.length}</p>
+        <p>Products found: {products?.length}</p>
 
         <ProductList products={products} />
       </div>

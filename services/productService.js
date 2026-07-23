@@ -7,51 +7,19 @@ export async function getProducts() {
       }
     );
 
-    if (!res.ok) {
-      throw new Error(
-        `HTTP Error: ${res.status}`
-      );
-    }
+    console.log("Status:", res.status);
 
     const text = await res.text();
 
-    try {
-      return JSON.parse(text);
-    } catch {
-      console.error("Invalid JSON:", text);
-      return [];
+    console.log("Response:", text);
+
+    if (!res.ok) {
+      throw new Error(`HTTP Error: ${res.status}`);
     }
+
+    return JSON.parse(text);
   } catch (error) {
     console.error("Products Error:", error);
     return [];
-  }
-}
-
-export async function getProduct(id) {
-  try {
-    const res = await fetch(
-      `https://fakestoreapi.com/products/${id}`,
-      {
-        cache: "no-store",
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error(
-        `HTTP Error: ${res.status}`
-      );
-    }
-
-    const text = await res.text();
-
-    try {
-      return JSON.parse(text);
-    } catch {
-      console.error("Invalid JSON:", text);
-      return null;
-    }
-  } catch (error) {
-    console.error("Product Error:", error);
-    return null;
   }
 }
