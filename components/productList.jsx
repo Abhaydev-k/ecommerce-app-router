@@ -1,20 +1,15 @@
 "use client";
 
+import ProductCard from "./ProductCard";
+
 export default function ProductList({ products }) {
   return (
-    <div>
-      {products.map((product) => (
-        <div
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {products?.map((product) => (
+        <ProductCard
           key={product.id}
-          style={{
-            border: "2px solid red",
-            padding: "20px",
-            margin: "10px",
-          }}
-        >
-          <h2>{product.title}</h2>
-          <p>${product.price}</p>
-        </div>
+          product={product}
+        />
       ))}
     </div>
   );

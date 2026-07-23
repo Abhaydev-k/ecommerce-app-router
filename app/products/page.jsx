@@ -1,19 +1,23 @@
 import { getProducts } from "@/services/productService";
-import ProductList from "@/components/productList";
-import PageWrapper from "@/components/pageWrapper";
+import ProductList from "@/components/ProductList";
+import PageWrapper from "@/components/PageWrapper";
 
 export default async function Products() {
   const products = await getProducts();
 
-  console.log(
-    "PAGE RECEIVED:",
-    products?.length
-  );
-
   return (
-    <div>
-      <h1>Products</h1>
-      <p>{products?.length}</p>
-    </div>
+    <PageWrapper>
+      <div className="p-10">
+        <h1 className="text-4xl font-bold mb-6">
+          Products
+        </h1>
+
+        <p className="mb-4">
+          Products Found: {products?.length}
+        </p>
+
+        <ProductList products={products} />
+      </div>
+    </PageWrapper>
   );
 }
