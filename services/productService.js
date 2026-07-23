@@ -11,7 +11,7 @@ export async function getProducts() {
 
     const text = await res.text();
 
-    console.log("BODY:", text);
+    console.log("RESPONSE:", text);
 
     return JSON.parse(text);
   } catch (error) {
