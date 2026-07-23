@@ -7,15 +7,11 @@ export async function getProducts() {
       }
     );
 
-    console.log("Status:", res.status);
+    console.log("STATUS:", res.status);
 
     const text = await res.text();
 
-    console.log("Response:", text);
-
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
+    console.log("BODY:", text);
 
     return JSON.parse(text);
   } catch (error) {
